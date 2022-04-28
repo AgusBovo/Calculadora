@@ -5,6 +5,10 @@ function init () {
     var resta = document.getElementById('resta');
     var multiplicar = document.getElementById('multiplicar');
     var division = document.getElementById('division');
+    var raiz = document.getElementById('raiz');
+    var raizcubica = document.getElementById('raizcubica');
+    var modulo = document.getElementById('modulo');
+    var potencia = document.getElementById('potencia');
     var igual = document.getElementById('igual');
     var uno = document.getElementById('uno');
     var dos = document.getElementById('dos');
@@ -71,6 +75,26 @@ function init () {
         operacion = "*";
         limpiar();
     }
+    potencia.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion = "^";
+        limpiar();
+    }
+    raiz.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion = "√";
+        limpiar();
+    }
+    raizcubica.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion = "∛";
+        limpiar();
+    }
+    modulo.onclick = function(e){
+        operandoa = resultado.textContent;
+        operacion = "%";
+        limpiar();
+    }
     igual.onclick = function(e){
         operandob = resultado.textContent;
         resolver();
@@ -100,6 +124,18 @@ function resolver(){
         break
         case"*":
         res=parseFloat(operandoa) * parseFloat(operandob);
+        break
+        case"^":
+        res=Math.pow(operandoa,operandob);
+        break
+        case"√":
+        res= Math.sqrt(operandoa);
+        break
+        case"∛":
+        res= Math.pow(operandoa, 1 / 3);
+        break
+        case"%":
+        res=parseFloat(operandoa) % parseFloat(operandob);
         break
     }
     resetear();
